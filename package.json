@@ -1,0 +1,11 @@
+{
+  "name": "backtrail",
+  "version": "0.1.0",
+  "description": "Backtrail",
+  "engines": {
+    "node": ">=24.14",
+    "pnpm": ">=10"
+  },
+  "scripts": {},
+  "devDependencies": {}
+}
