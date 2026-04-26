@@ -6,6 +6,9 @@
     "node": ">=24.14",
     "pnpm": ">=10"
   },
+  "files": [
+    "README.md"
+  ],
   "scripts": {},
   "devDependencies": {}
 }
