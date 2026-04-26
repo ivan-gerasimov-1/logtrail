@@ -8,7 +8,10 @@ description: Implement a CHANGE record after confirmation
 1. Read `.backtrail/changes.md`, `.backtrail/adl.md`, and `.backtrail/features.md` when they exist.
 2. Select work:
    - If input starts with `CHANGE-00014`, `CHANGE 00014`, `C-00014`, `#14`, `#014`, `014`, or `14`, prefer the matching CHANGE record when it exists.
-   - Otherwise select the lowest-numbered non-`Done`, non-`Abandoned` CHANGE
+   - Otherwise build a list of eligible CHANGE records: every CHANGE whose status is not `Done` and not `Abandoned`.
+   - If there are no eligible CHANGE records, stop and report that no implementable CHANGE exists.
+   - If there is exactly one eligible CHANGE record, select it automatically.
+   - If there are two or more eligible CHANGE records, ask the user to choose one. Use `request_user_input` when available.
 3. Stop unless the selected CHANGE exists.
 4. If the selected CHANGE links ADRs, stop unless every linked ADR exists and has status `Accepted`.
 5. If the selected CHANGE links FEATUREs, stop unless every linked FEATURE exists and has status `Accepted`.
