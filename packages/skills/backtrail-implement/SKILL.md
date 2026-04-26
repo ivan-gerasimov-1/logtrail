@@ -1,16 +1,24 @@
 ---
 name: Backtrail | Implement
-description: Implement a CHANGE record after confirmation
+description: Implement a CHANGE record after user confirmation
 ---
 
-# Workflow
+## Purpose
+
+Use this skill to implement an existing CHANGE record after confirming the selected work with the user.
+
+## Input
+
+Use the text after this skill invocation to select the CHANGE record.
+
+## Workflow
 
 1. Read `.backtrail/changes.md`, `.backtrail/adl.md`, and `.backtrail/features.md` when they exist.
 2. Select work:
    - If input starts with `CHANGE-00014`, `CHANGE 00014`, `C-00014`, `#14`, `#014`, `014`, or `14`, prefer the matching CHANGE record when it exists.
-   - Otherwise build a list of eligible CHANGE records: every CHANGE whose status is not `Done` and not `Abandoned`.
-   - If there are no eligible CHANGE records, stop and report that no implementable CHANGE exists.
-   - If there is exactly one eligible CHANGE record, select it automatically.
+   - Otherwise, build a list of eligible CHANGE records: every CHANGE whose status is not `Done` and not `Abandoned`.
+   - If no eligible CHANGE records exist, stop and report that no implementable CHANGE exists.
+   - If exactly one eligible CHANGE record exists, select it automatically.
    - If there are two or more eligible CHANGE records, ask the user to choose one. Use `request_user_input` when available.
 3. Stop unless the selected CHANGE exists.
 4. If the selected CHANGE links ADRs, stop unless every linked ADR exists and has status `Accepted`.
@@ -26,14 +34,14 @@ description: Implement a CHANGE record after confirmation
 11. If verification passes and the CHANGE implements linked FEATUREs, update those FEATURE files and `.backtrail/features.md` status to `Implemented`.
 12. If verification fails, leave status unchanged and report failures.
 
-# Question UX
+## Question UX
 
 - When asking the user to choose between two or three meaningful options, use `request_user_input` when available.
 - For yes/no decisions, present `Yes` and `No` choices.
 - If `request_user_input` is unavailable, ask one concise plain-text question with numbered choices.
 - Do not claim that a skill can switch modes or force button rendering.
 
-# Guardrails
+## Guardrails
 
 - Do not infer missing CHANGE records.
 - If implementation needs to change an ADR decision, stop and ask for a new or updated ADR.
