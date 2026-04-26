@@ -10,7 +10,8 @@
   "files": [
     "backtrail-implement",
     "backtrail-prepare-adr",
-    "backtrail-prepare-change"
+    "backtrail-prepare-change",
+    "backtrail-prepare-feature"
   ],
   "keywords": [
     "agents",
