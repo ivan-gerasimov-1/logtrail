@@ -8,9 +8,9 @@
     "access": "public"
   },
   "files": [
-    "logtrail-implement",
-    "logtrail-prepare-adr",
-    "logtrail-prepare-change"
+    "backtrail-implement",
+    "backtrail-prepare-adr",
+    "backtrail-prepare-change"
   ],
   "keywords": [
     "agents",
