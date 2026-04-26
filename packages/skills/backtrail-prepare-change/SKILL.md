@@ -1,5 +1,5 @@
 ---
-name: Logtrail | Prepare CHANGE
+name: Backtrail | Prepare CHANGE
 description: Create a new Proposed CHANGE record for ADR-backed or standalone implementation work
 ---
 

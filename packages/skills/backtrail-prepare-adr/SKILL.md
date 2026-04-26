@@ -1,5 +1,5 @@
 ---
-name: Logtrail | Prepare ADR
+name: Backtrail | Prepare ADR
 description: Create a new Proposed ADR from user-provided decision input
 ---
 
@@ -40,7 +40,7 @@ Use this skill only to prepare ADR documentation. Inspect code as needed, but wr
     - `No`: leave `Proposed`.
 11. Ask to proceed with creating of CHANGE.
     - Prefer Yes/No buttons when available.
-    - `Yes`: Use `Logtrail | Prepare Change` skill
+    - `Yes`: Use `Backtrail | Prepare Change` skill
     - `No`: skip to the next step.
 12. Stop after docs/status changes. Do not implement code.
 
@@ -48,6 +48,6 @@ Use this skill only to prepare ADR documentation. Inspect code as needed, but wr
 
 - Do not change implementation code, templates outside this ADR artifact, configs, or tests.
 - Do not overwrite existing ADR files.
-- Do not create CHANGE records; use the Logtrail Prepare Change skill for implementation plans.
+- Do not create CHANGE records; use the Backtrail Prepare Change skill for implementation plans.
 - Do not treat numbers in input body as ADR numbers.
 - Superseding another ADR requires explicit user confirmation.

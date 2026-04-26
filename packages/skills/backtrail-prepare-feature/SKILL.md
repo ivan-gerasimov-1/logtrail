@@ -1,5 +1,5 @@
 ---
-name: Logtrail | Prepare FEATURE
+name: Backtrail | Prepare FEATURE
 description: Create a new Proposed FEATURE record for user-visible capability or product behavior
 ---
 
@@ -22,8 +22,8 @@ Use this skill only to prepare FEATURE documentation. Inspect code as needed, bu
 2. Read `.backtrail/features.md`, related FEATURE/ADR/CHANGE docs, and relevant code. If `.backtrail/features.md` or `.backtrail/features/` is missing, plan to create it.
 3. Apply the FEATURE gate before creating files:
    - Create a FEATURE only for user-visible capability, product behavior, workflow, or acceptance criteria that benefits from a durable capability spec.
-   - Route durable architecture choices to `Logtrail | Prepare ADR` first when the brief constrains future work, changes architecture, repository structure, public contracts, generated output, build/test workflow, dependencies, or reversibility.
-   - Route concrete implementation work without feature-spec need to `Logtrail | Prepare CHANGE`.
+   - Route durable architecture choices to `Backtrail | Prepare ADR` first when the brief constrains future work, changes architecture, repository structure, public contracts, generated output, build/test workflow, dependencies, or reversibility.
+   - Route concrete implementation work without feature-spec need to `Backtrail | Prepare CHANGE`.
    - If the gate does not pass, stop and explain which artifact is the better fit. Do not create FEATURE files.
 4. Determine FEATURE number:
    - Use an explicit number only when it appears at the start of input, after optional whitespace.
@@ -51,7 +51,7 @@ Use this skill only to prepare FEATURE documentation. Inspect code as needed, bu
     - No decision: leave `Proposed`.
 11. Offer to proceed with creating a CHANGE after FEATURE creation.
     - Prefer Yes/No buttons when available.
-    - `Yes`: use `Logtrail | Prepare CHANGE` skill.
+    - `Yes`: use `Backtrail | Prepare CHANGE` skill.
     - `No`: skip to the next step.
 12. Stop after docs/status changes. Do not implement code.
 
@@ -59,7 +59,7 @@ Use this skill only to prepare FEATURE documentation. Inspect code as needed, bu
 
 - Do not change implementation code, templates outside this FEATURE artifact, configs, or tests.
 - Do not overwrite existing FEATURE files.
-- Do not create ADR or CHANGE records directly; use the matching Logtrail Prepare skill.
+- Do not create ADR or CHANGE records directly; use the matching Backtrail Prepare skill.
 - Do not treat numbers in input body as FEATURE numbers.
 - Do not mark FEATURE as `Implemented` during prepare. Set `Implemented` later when implementation CHANGE records finish.
 - Superseding or replacing another FEATURE requires explicit user confirmation.
