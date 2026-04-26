@@ -14,7 +14,7 @@ Use this skill only to create CHANGE documentation. Inspect code as needed, but 
 ## Workflow
 
 1. If the brief does not identify implementation work, ask for the change topic before creating files.
-2. Read `.backtrail/changes.md`, `.backtrail/adl.md`, `.backtrail/features.md`, relevant FEATURE/ADR/CHANGE docs, and inspect current state.
+2. Read `.backtrail/changes.md`, `.backtrail/adl.md`, `.backtrail/features.md`, relevant FEATURE/ADR/CHANGE docs, and inspect current state. If `.backtrail/changes.md` or `.backtrail/changes/` is missing, plan to create it.
 3. Apply the ADR-backed change gate before creating files:
    - If the brief references ADRs, verify that each ADR exists and is `Accepted`.
    - If the brief references FEATUREs, verify they exist. Prefer an `Accepted` FEATURE before creating implementation CHANGE records.
@@ -27,6 +27,7 @@ Use this skill only to create CHANGE documentation. Inspect code as needed, but 
    - Normalize to five digits: `#14 Split decisions` -> `CHANGE-00014`, `.backtrail/changes/change-00014-split-decisions.md`.
    - Do not scan the input body for CHANGE numbers.
    - If no starting number exists, use max `CHANGE-NNNNN` from `.backtrail/changes.md` + 1.
+   - If `.backtrail/changes.md` is missing, create it and start at `CHANGE-00001` unless the brief has an explicit starting number.
 5. Stop if `.backtrail/changes/change-NNNNN-title-slug.md` already exists.
 6. Present a rough approach before writing:
    - goal
@@ -37,7 +38,7 @@ Use this skill only to create CHANGE documentation. Inspect code as needed, but 
    - rollback
 7. Ask clarifying questions only when the answer changes scope, compatibility, verification, or rollback.
 8. Create `.backtrail/changes/change-NNNNN-title-slug.md` from `assets/change-template.md`.
-   - If you estimate that change takes more than 500 lines, create several subsequent CHANGE files, each one blocked by previous
+   - If the estimated implementation diff exceeds 500 lines, create several subsequent CHANGE files, each blocked by the previous record.
 9. Save CHANGE and `.backtrail/changes.md` entry with status `Proposed`.
 10. Stop after docs/status changes. Do not implement code.
 

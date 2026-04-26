@@ -1,18 +1,18 @@
 ---
 name: Backtrail | Implement
-description: Implement a CHANGE record linked to an Accepted ADR after confirmation
+description: Implement a CHANGE record after confirmation
 ---
 
 # Workflow
 
-1. Read `.backtrail/changes.md` and `.backtrail/adl.md`.
+1. Read `.backtrail/changes.md` and `.backtrail/adl.md` when they exist.
 2. Select work:
    - If input starts with `CHANGE-00014`, `CHANGE 00014`, `C-00014`, `#14`, `#014`, `014`, or `14`, prefer the matching CHANGE record when it exists.
    - Otherwise select the lowest-numbered non-`Done`, non-`Abandoned` CHANGE
 3. Stop unless the selected CHANGE exists.
-4. Stop unless every linked ADR exists and has status `Accepted`.
-5. Read the selected CHANGE and linked ADRs.
-6. Summarize decision context, change scope, implementation steps, verification, and rollback.
+4. If the selected CHANGE links ADRs, stop unless every linked ADR exists and has status `Accepted`.
+5. Read the selected CHANGE and linked ADRs, if any.
+6. Summarize decision context, change scope, implementation steps, verification, and rollback. For standalone CHANGE records, state that no ADR gate applies.
 7. Ask whether to implement the selected CHANGE now.
    - Use Yes/No buttons when `request_user_input` is available.
    - `Yes`: continue to implementation.

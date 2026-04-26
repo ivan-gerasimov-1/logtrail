@@ -14,7 +14,7 @@ Use this skill only to create ADR documentation. Inspect code as needed, but wri
 ## Workflow
 
 1. If the brief does not identify a decision, ask for the decision topic before creating files.
-2. Read `.backtrail/adl.md`, relevant ADRs/docs/code, and inspect current state.
+2. Read `.backtrail/adl.md`, relevant ADRs/docs/code, and inspect current state. If `.backtrail/adl.md` or `.backtrail/adrs/` is missing, plan to create it.
 3. Apply the ADR gate before creating files:
    - Create an ADR only for durable decisions that constrain future work, change architecture, repository structure, public contracts, generated output, build/test workflow, dependencies, or reversibility.
    - Favor a commit, issue, pull request note, or CHANGE record for routine bug fixes, local refactors, test additions, implementation details of an existing ADR, copy changes, dependency patch updates, or choices that only matter inside one task.
@@ -25,6 +25,7 @@ Use this skill only to create ADR documentation. Inspect code as needed, but wri
    - Normalize to five digits: `#14 Split decisions` -> `ADR-00014`, `.backtrail/adrs/adr-00014-split-decisions.md`.
    - Do not scan the input body for ADR numbers.
    - If no starting number exists, use max `ADR-NNNNN` from `.backtrail/adl.md` + 1.
+   - If `.backtrail/adl.md` is missing, create it and start at `ADR-00001` unless the brief has an explicit starting number.
 5. Stop if `.backtrail/adrs/adr-NNNNN-title-slug.md` already exists.
 6. Present a rough approach before writing:
    - decision
