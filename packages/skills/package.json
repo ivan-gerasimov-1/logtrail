@@ -8,10 +8,11 @@
     "access": "public"
   },
   "files": [
-    "backtrail-implement",
-    "backtrail-prepare-adr",
-    "backtrail-prepare-change",
-    "backtrail-prepare-feature"
+    "backtrail-create",
+    "backtrail-create-adr",
+    "backtrail-create-change",
+    "backtrail-create-feature",
+    "backtrail-implement"
   ],
   "keywords": [
     "agents",
