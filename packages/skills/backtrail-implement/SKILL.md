@@ -5,21 +5,23 @@ description: Implement a CHANGE record after confirmation
 
 # Workflow
 
-1. Read `.backtrail/changes.md` and `.backtrail/adl.md` when they exist.
+1. Read `.backtrail/changes.md`, `.backtrail/adl.md`, and `.backtrail/features.md` when they exist.
 2. Select work:
    - If input starts with `CHANGE-00014`, `CHANGE 00014`, `C-00014`, `#14`, `#014`, `014`, or `14`, prefer the matching CHANGE record when it exists.
    - Otherwise select the lowest-numbered non-`Done`, non-`Abandoned` CHANGE
 3. Stop unless the selected CHANGE exists.
 4. If the selected CHANGE links ADRs, stop unless every linked ADR exists and has status `Accepted`.
-5. Read the selected CHANGE and linked ADRs, if any.
-6. Summarize decision context, change scope, implementation steps, verification, and rollback. For standalone CHANGE records, state that no ADR gate applies.
-7. Ask whether to implement the selected CHANGE now.
+5. If the selected CHANGE links FEATUREs, stop unless every linked FEATURE exists and has status `Accepted`.
+6. Read the selected CHANGE and linked ADRs or FEATUREs, if any.
+7. Summarize decision context, change scope, implementation steps, verification, and rollback. For standalone CHANGE records, state that no ADR or FEATURE gate applies.
+8. Ask whether to implement the selected CHANGE now.
    - Use Yes/No buttons when `request_user_input` is available.
    - `Yes`: continue to implementation.
    - `No`: stop without changing files.
-8. Implement the CHANGE and run its verification.
-9. If verification passes, update the CHANGE file and `.backtrail/changes.md` status to `Done`.
-10. If verification fails, leave status unchanged and report failures.
+9. Implement the CHANGE and run its verification.
+10. If verification passes, update the CHANGE file and `.backtrail/changes.md` status to `Done`.
+11. If verification passes and the CHANGE implements linked FEATUREs, update those FEATURE files and `.backtrail/features.md` status to `Implemented`.
+12. If verification fails, leave status unchanged and report failures.
 
 # Question UX
 
@@ -32,4 +34,5 @@ description: Implement a CHANGE record after confirmation
 
 - Do not infer missing CHANGE records.
 - If implementation needs to change an ADR decision, stop and ask for a new or updated ADR.
+- If implementation needs to change a FEATURE scope, acceptance criteria, or status gate, stop and ask for a new or updated FEATURE.
 - If implementation needs a different scope than the CHANGE describes, stop and ask whether to update the CHANGE first.
